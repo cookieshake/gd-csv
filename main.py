@@ -4,6 +4,7 @@ class Table(object):
         self.column_dtypes = list()
         self.rows = list()
 
+    # csv 파일을 읽어 data를 채움
     def read_csv(self, file_name, datatypes=dict()):
         csv_file = open(file_name, 'r')
 
@@ -23,6 +24,7 @@ class Table(object):
 
             line = csv_file.readline().strip()
 
+    # col_name을 입력받아 row들을 해당 column의 값을 기반으로 정렬
     def sort_by(self, col_name, reverse=False):
         col_index = self.column_index(col_name)
         self.rows.sort(key=lambda x: x[col_index], reverse=reverse)
